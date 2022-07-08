@@ -1,0 +1,25 @@
+.auctionComp-layout{
+    background-color: transparent;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.auctionComp-layout .auctionComp-title{
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: bold;
+    color: white;
+}
+
+.auctionComp-layout .auctionComp-loading{
+    text-align: center;
+    margin: auto;
+    width: fit-content
+}
+
+/* .auctionComp-layout .auctionComp-loading .createAuction-loading-title{
+    font-size: 28px;
+    line-height: 36px;
+    color: white;
+} */

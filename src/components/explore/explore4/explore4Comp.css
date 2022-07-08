@@ -1,0 +1,21 @@
+.explore4Comp-layout{
+    background-color: transparent;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.explore4Comp-layout .explore4Comp-title-layout{
+    display: flex;
+    flex-direction: column;
+}
+.explore4Comp-layout .explore4Comp-title{
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 34px;
+    /* identical to box height */
+
+    text-align: left;
+    color: #FFFFFF;
+}
