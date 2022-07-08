@@ -126,26 +126,25 @@ function CreateItemComp() {
           <Col lg="8">
             {mintMethod === 0 && (
               <Row className="createItemComp-border-layout">
-                <Col lg="6">
+                <Col lg="12">
                   <button className="createAuction-method selected">
                     {/* <img src={TagImg} alt="" className="button-img" /> */}
                     Simple Mint
                   </button>
                 </Col>
-                <Col lg="6">
+                {/* <Col lg="6">
                   <button
                     className="createAuction-method"
                     onClick={() => setMintMethod(1)}
                   >
-                    {/* <img src={ClockImg} alt="" className="button-img" /> */}
                     Hidden Mint
                   </button>
-                </Col>
+                </Col> */}
               </Row>
             )}
             {mintMethod === 1 && (
               <Row className="createItemComp-border-layout">
-                <Col lg="6">
+                <Col lg="12">
                   <button
                     className="createAuction-method"
                     onClick={() => setMintMethod(0)}
@@ -154,12 +153,11 @@ function CreateItemComp() {
                     Simple Mint
                   </button>
                 </Col>
-                <Col lg="6">
+                {/* <Col lg="6">
                   <button className="createAuction-method selected">
-                    {/* <img src={ClockImg} alt="" className="button-img" /> */}
                     Hidden Mint
                   </button>
-                </Col>
+                </Col> */}
               </Row>
             )}
             <h2 className="createItemComp-title">Upload file</h2>
