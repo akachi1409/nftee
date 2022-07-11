@@ -20,7 +20,7 @@ function CreateItemComp() {
   const [flag, setFlag] = useState(true);
   const [mintMethod, setMintMethod] = useState(0);
   const [dayTo, setDayTo] = useState(0);
-  const [royalty, setRoyalty] = useState(0);
+  // const [royalty, setRoyalty] = useState(0);
   const [amount, setAmount] = useState(1);
 
   const blockchain = useSelector((state) => state.blockchain);
