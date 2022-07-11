@@ -76,7 +76,7 @@ function Mynft() {
         return;
       }
       for ( var i = 0 ; i< indexes.length; i++){
-        if (indexes[i] === "1"){
+        if (indexes[i] !== "0"){
           const url = await getURL(i+1)
           const result = await getNFTs(url.split("https://gateway.pinata.cloud/ipfs/")[1])
           console.log("result:", result.data, );
