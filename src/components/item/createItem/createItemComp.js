@@ -61,10 +61,10 @@ function CreateItemComp() {
     //   notify("Royalty should be between 0 and 100.");
     //   return;
     // }
-    if (!Number.isInteger(royaltyT)) {
-      notify("Royalty should be integer.");
-      return;
-    }
+    // if (!Number.isInteger(royaltyT)) {
+    //   notify("Royalty should be integer.");
+    //   return;
+    // }
     try {
       notify("Uploading to IPFS is started");
       const added = await client.add(image, {
