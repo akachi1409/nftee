@@ -57,10 +57,10 @@ function CreateItemComp() {
       notify("You should input the days to reveal in Hidden Mint Mode.");
       return;
     }
-    if (royaltyT > 100 || royaltyT < 0) {
-      notify("Royalty should be between 0 and 100.");
-      return;
-    }
+    // if (royaltyT > 100 || royaltyT < 0) {
+    //   notify("Royalty should be between 0 and 100.");
+    //   return;
+    // }
     if (!Number.isInteger(royaltyT)) {
       notify("Royalty should be integer.");
       return;
@@ -96,7 +96,7 @@ function CreateItemComp() {
       const url1 = `https://ipfs.infura.io/ipfs/${added1.path}`;
       notify("Metadata is uploaded successfully to IPFS.");
       blockchain.akachiNFT.methods
-        .mintNewToken(amount, url1, royalty * 100)
+        .mintNewToken(amount, url1)
         .send({ from: blockchain.account })
         .once("error", (err) => {
           console.log(err);
@@ -220,13 +220,13 @@ function CreateItemComp() {
               margin="1em"
               text="Amount: default 1"
               onChange = {(e) => setAmount(e.target.value)}/>
-            <h2 className="createItemComp-title">Royalty</h2>
+            {/* <h2 className="createItemComp-title">Royalty</h2>
             <Input1
               margin="1em"
               text="Royalty: default 0%"
               // placeholder='e.g "This is very limited item"'
               onChange={(e) => setRoyalty(e.target.value)}
-            />
+            /> */}
             <div style={{ display: "flex", flexDirection: "row-reverse" }}>
               <button
                 className="createItemComp-create-btn"
