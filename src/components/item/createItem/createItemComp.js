@@ -21,6 +21,7 @@ function CreateItemComp() {
   const [mintMethod, setMintMethod] = useState(0);
   const [dayTo, setDayTo] = useState(0);
   const [royalty, setRoyalty] = useState(0);
+  const [amount, setAmount] = useState(1);
 
   const blockchain = useSelector((state) => state.blockchain);
   let navigate = useNavigate();
@@ -95,7 +96,7 @@ function CreateItemComp() {
       const url1 = `https://ipfs.infura.io/ipfs/${added1.path}`;
       notify("Metadata is uploaded successfully to IPFS.");
       blockchain.akachiNFT.methods
-        .mintNewToken(1, url1, royalty * 100)
+        .mintNewToken(amount, url1, royalty * 100)
         .send({ from: blockchain.account })
         .once("error", (err) => {
           console.log(err);
@@ -128,18 +129,9 @@ function CreateItemComp() {
               <Row className="createItemComp-border-layout">
                 <Col lg="12">
                   <button className="createAuction-method selected">
-                    {/* <img src={TagImg} alt="" className="button-img" /> */}
                     Simple Mint
                   </button>
                 </Col>
-                {/* <Col lg="6">
-                  <button
-                    className="createAuction-method"
-                    onClick={() => setMintMethod(1)}
-                  >
-                    Hidden Mint
-                  </button>
-                </Col> */}
               </Row>
             )}
             {mintMethod === 1 && (
@@ -149,15 +141,9 @@ function CreateItemComp() {
                     className="createAuction-method"
                     onClick={() => setMintMethod(0)}
                   >
-                    {/* <img src={TagImg} alt="" className="button-img" /> */}
                     Simple Mint
                   </button>
                 </Col>
-                {/* <Col lg="6">
-                  <button className="createAuction-method selected">
-                    Hidden Mint
-                  </button>
-                </Col> */}
               </Row>
             )}
             <h2 className="createItemComp-title">Upload file</h2>
@@ -229,6 +215,11 @@ function CreateItemComp() {
               placeholder='e.g "This is very limited item"'
               onChange={(e) => setDescription(e.target.value)}
             />
+            <h2 className="createItemComp-title">Amount</h2>
+            <Input1
+              margin="1em"
+              text="Amount: default 1"
+              onChange = {(e) => setAmount(e.target.value)}/>
             <h2 className="createItemComp-title">Royalty</h2>
             <Input1
               margin="1em"
