@@ -7,7 +7,7 @@ import ReactLoading from "react-loading";
 
 import "./mynft.css";
 import MyNFTItem from "./mynftItem.js"
-import PlaceholderImg from "../../../assets/activity2/placeholder.png"
+// import PlaceholderImg from "../../../assets/activity2/placeholder.png"
 function Mynft() {
   const [firstLoad, setFirstLoad] = useState(true);
   const [data, setData] = useState([]);
