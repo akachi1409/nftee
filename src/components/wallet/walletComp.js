@@ -1,14 +1,14 @@
-// import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import WalletItem from "./walletItem";
 import "./walletComp.css";
 import MetaImg from "../../assets/wallet/metamask.png";
 // import CoinImg from "../../assets/wallet/coinbase.png";
-// import { fetchData } from "../../redux/data/dataActions";
+import { fetchData } from "../../redux/data/dataActions";
 
 import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Modal } from "react-bootstrap";
 
 function WalletComp() {
@@ -24,18 +24,18 @@ function WalletComp() {
     //   text: "Coinbase Wallet is a self-custody crypto wallet, putting you in control of your crypto, keys, and data. Now you can safely store your crypto and rare NFTs in your Coinbase wallet.",
     // },
   ];
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
 
-  // const getData = () => {
-  //   if (blockchain.account !== "" && blockchain.smartContract !== null) {
-  //     dispatch(fetchData(blockchain.account));
-  //   }
-  // };
-  // useEffect(() => {
-  //   getData();
-  // }, [blockchain.account]); // eslint-disable-line react-hooks/exhaustive-deps
+  const getData = () => {
+    if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      dispatch(fetchData(blockchain.account));
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, [blockchain.account]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // console.log("blockchain", blockchain);
   return (

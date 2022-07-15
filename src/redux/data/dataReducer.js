@@ -22,8 +22,8 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        // auctionAddress: action.payload.auctionAddress,
-        // auctionId: action.payload.auctionId,
+        auctionAddress: action.payload.auctionAddress,
+        auctionId: action.payload.auctionId,
         error: false,
         errorMsg: "",
       };
