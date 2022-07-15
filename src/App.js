@@ -22,7 +22,7 @@ import Home from "./page/home/home";
 
 import CreateItem from "./page/item/createItem";
 
-// import Auction from "./page/auction/auction";
+import Auction from "./page/auction/auction";
 import ConnectWallet from "./page/wallet/connetWallet";
 import MyNFT from "./page/auth/mynft"
 import BidPage from "./page/auction/bidPage"
@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/explore" element={<Explore4 />}></Route> */}
           {/* explore4 is for explore the collection */}
           <Route exact path="/create_item" element={<CreateItem />}></Route>
-          {/* <Route exact path="/auction" element={<Auction />}></Route> */}
+          <Route exact path="/auction" element={<Auction />}></Route>
           <Route exact path="/explore_item/:contract/:id" element = {<MyNFTItem/>}></Route>
           <Route exact path="/bid_item/:contract/:id" element={<BidPage/>}></Route>
           <Route

@@ -74,11 +74,12 @@ function CreateAuction(props) {
        royalty = await blockchain.akachiNFT.methods.getTokenRoyal(props.id-1).call();
     }
     console.log("---", creator, royalty)
+    const minBuy = parseInt(buyNow/2)
     blockchain.smartContract.methods
       .createDefaultNftAuction(
         props.contract, 
         props.id, 
-        blockchain.web3.utils.toWei(buyNow/2, "ether") , 
+        blockchain.web3.utils.toWei(minBuy, "ether") , 
         blockchain.web3.utils.toWei(buyNow, "ether"),
         creator, 
         royalty )
