@@ -51,10 +51,7 @@ function MyNFTItem(props) {
       <Row style={{ marginTop: "1em", alignItems: "center" }}>
         {/* <Col lg="9"> */}
         <h1 className="mynftItem-title">{props.title}</h1>
-        {/* </Col> */}
-        {/* <Col lg="3">
-          <div className="mynftItem-net">{props.net}</div>
-        </Col> */}
+        <p className="mynftItem-net">{props.description }</p>
       </Row>
 
       {/* <Row style={{ marginTop: "1em", alignItems: "center" }}>

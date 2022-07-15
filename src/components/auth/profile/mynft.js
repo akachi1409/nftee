@@ -83,35 +83,16 @@ function Mynft() {
           var data = result.data;
           // var data = JSON.parse(result.data)
           console.log(data)
-          var nowTime = new Date();
-          var createTime ;
-          if (data.createTime === undefined){
-            createTime = 0;
-          }else{
-            createTime = new Date(data.createTime).getTime()
-          } 
-          var diff = (nowTime.getTime() -createTime)/1000;
-          var secondDiff = diff - data.time * 3600
-          if (data.time === 0 || secondDiff>0){
+          for (var j = 0 ; j<indexes[i]; j++){
             temp.push({ 
               "image": data.image,
               "title": data.name,
+              "description": data.description,
               "owner": blockchain.account.length > 12 ? blockchain.account.substring(0, 12) + "..." : blockchain.account, 
               "contract": process.env.REACT_APP_AKACHI_NFT_CONTRACT,
               "tokenId": i+1,
               "akachiNFT": true
             })
-          }
-          else{
-            temp.push({ 
-              "image": {PlaceholderImg},
-              "title": "TBD",
-              "owner": blockchain.account.length > 12 ? blockchain.account.substring(0, 12) + "..." : blockchain.account, 
-              "contract": process.env.REACT_APP_AKACHI_NFT_CONTRACT,
-              "tokenId": "TBD",
-              "akachiNFT": true
-            })
-
           }
         }
       }
@@ -150,6 +131,7 @@ function Mynft() {
                 <MyNFTItem
                   image={item.image}
                   title={item.title}
+                  description = {item.description}
                   // net={item.net}
                   owner={item.owner}
                   contract={item.contract}
