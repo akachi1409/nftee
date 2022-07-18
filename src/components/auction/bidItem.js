@@ -85,15 +85,15 @@ function BidItem(props) {
       AkachiToken,
       "0x8119841E9c4e2658B36817Cfe58dfDFDca043930"
     );
-    akachiTokenContract.methods
-      .approve(process.env.REACT_APP_AUCTION_NFT_CONTRACT, blockchain.web3.utils.toWei(buyNow, "ether") )
-      .send({ from: blockchain.account })
-      .once("error", (err) => {
-        console.log(err);
-      })
-      .then(() => {
-        console.log("success");
-      });
+    // akachiTokenContract.methods
+    //   .approve(process.env.REACT_APP_AUCTION_NFT_CONTRACT, blockchain.web3.utils.toWei(buyNow, "ether") )
+    //   .send({ from: blockchain.account })
+    //   .once("error", (err) => {
+    //     console.log(err);
+    //   })
+    //   .then(() => {
+    //     console.log("success");
+    //   });
     blockchain.akachiNFT.methods
       .setApprovalForAll(process.env.REACT_APP_AUCTION_NFT_CONTRACT, true)
       .send({ from: blockchain.account })
@@ -104,8 +104,11 @@ function BidItem(props) {
         console.log("success");
       });
     blockchain.smartContract.methods
-      .makeBid(props.contract, props.id, blockchain.web3.utils.toWei(buyNow, "ether"))
-      .send({ from: blockchain.account })
+      .makeBid(props.contract, props.id, 0)
+      .send({
+        value:blockchain.web3.utils.toWei(buyNow, "ether"),
+        from: blockchain.account 
+      })
       .once("error", (err) => {
         console.log(err);
       })
@@ -144,13 +147,13 @@ function BidItem(props) {
                 </button>
               </Col>
             </Row>
-            <h2 className="bidItem-title">Min Price</h2>
+            {/* <h2 className="bidItem-title">Min Price</h2>
             <Input1
               margin="1em"
               text="Enter minimum price for one item (AkachiToken)"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
-            />
+            /> */}
             {/* <h2 className="bidItem-title">Buy Now</h2>
             <Input1 margin="1em" text="Enter buy now price for one item (AkachiToken)" value = {buyNow} onChange = {(e)=>setBuyNow(e.target.value)}/> */}
             {/* <div style={{ display: "flex", flexDirection: "row-reverse" }}>
