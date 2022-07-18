@@ -133,12 +133,6 @@
       {
         "indexed": false,
         "internalType": "uint128",
-        "name": "minPrice",
-        "type": "uint128"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint128",
         "name": "buyNowPrice",
         "type": "uint128"
       },
@@ -194,11 +188,6 @@
         "internalType": "uint256",
         "name": "_tokenId",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint128",
-        "name": "_minPrice",
-        "type": "uint128"
       },
       {
         "internalType": "uint128",
@@ -404,11 +393,6 @@
         "internalType": "uint64",
         "name": "auctionEnd",
         "type": "uint64"
-      },
-      {
-        "internalType": "uint128",
-        "name": "minPrice",
-        "type": "uint128"
       },
       {
         "internalType": "uint128",
