@@ -12,8 +12,8 @@ import TagImg from "../../assets/item/tag.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Web3EthContract from "web3-eth-contract";
-import AkachiToken from "../../contracts/AkachiToken.json";
+// import Web3EthContract from "web3-eth-contract";
+// import AkachiToken from "../../contracts/AkachiToken.json";
 // import EliteChess from "../../contracts/EliteChess.json";
 function BidItem(props) {
   const [data, setData] = useState([]);
