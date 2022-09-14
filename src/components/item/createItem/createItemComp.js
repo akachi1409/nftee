@@ -96,7 +96,7 @@ function CreateItemComp() {
       const url1 = `https://ipfs.infura.io/ipfs/${added1.path}`;
       notify("Metadata is uploaded successfully to IPFS.");
       blockchain.akachiNFT.methods
-        .mintNewToken(amount, url1, 1000)
+        .mintNewToken(amount, url1, 5000)
         .send({ from: blockchain.account })
         .once("error", (err) => {
           console.log(err);
