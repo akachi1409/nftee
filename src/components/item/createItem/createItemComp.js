@@ -11,9 +11,12 @@ import "react-toastify/dist/ReactToastify.css";
 // import ClockImg from "../../../assets/item/clock.png";
 
 import Input1 from "../../../basic/button/input1";
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+const projectId = process.env.REACT_APP_PROJECT_ID;
+const projectSecret = process.env.REACT_APP_PROJECT_SECRET;
+const auth ='Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 
 function CreateItemComp() {
+  
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -47,8 +50,15 @@ function CreateItemComp() {
   };
 
   const onCreate = async () => {
-    // notify(name + description + royalty);
-    // const royaltyT = parseInt(royalty);
+    const client = await ipfsHttpClient({
+        host: 'ipfs.infura.io',
+        port: 5001,
+        protocol: 'https',
+        headers:{
+            authorization: auth,
+        },
+    });
+    const subdomain = 'https://offero.infura-ipfs.io';
     if (name === "" || description === "") {
       notify("You should input the name and descrition to create new NFT!");
       return;
@@ -57,20 +67,12 @@ function CreateItemComp() {
       notify("You should input the days to reveal in Hidden Mint Mode.");
       return;
     }
-    // if (royaltyT > 100 || royaltyT < 0) {
-    //   notify("Royalty should be between 0 and 100.");
-    //   return;
-    // }
-    // if (!Number.isInteger(royaltyT)) {
-    //   notify("Royalty should be integer.");
-    //   return;
-    // }
     try {
       notify("Uploading to IPFS is started");
       const added = await client.add(image, {
         progress: (prog) => console.log(`received: ${prog}`),
       });
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `${subdomain}/ipfs/${added.path}`;
       /* first, upload to IPFS */
       console.log("image Url", url);
       notify("Image is uploaded successfully to IPFS.");

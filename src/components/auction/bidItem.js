@@ -3,9 +3,6 @@ import "./bidItem.css";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Explore1Item from "../explore/explore1/explore1Item";
-
-// import Input1 from "../../basic/button/input1";
-// import ClockImg from "../../assets/item/clock.png";
 import TagImg from "../../assets/item/tag.png";
 // import PeopleImg from "../../assets/item/people.png";
 
@@ -13,8 +10,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import Web3EthContract from "web3-eth-contract";
-// import AkachiToken from "../../contracts/AkachiToken.json";
-// import EliteChess from "../../contracts/EliteChess.json";
 function BidItem(props) {
   const [data, setData] = useState([]);
   // const [owner, setOwner] = useState("");
